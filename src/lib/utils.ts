@@ -61,8 +61,18 @@ export async function createClientSideCheckout(orderData: OrderData, locale: str
         throw new Error('No package selected')
     }
 
-    // Load Stripe
-    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
+    // Load Stripe - fallback to hardcoded key if env var not available
+    console.log('STRIPE KEY CHECK:', {
+        env_key: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+        available: !!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+    })
+    
+    const stripeKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_51RjwRwEQ2mZzqnz8hO4lKcJXr0ty829EF6B86gHMzxU8HoLsetVT7GRmWeNqMFI5NPdr6Nh6HCneTJcLdqFfuCMz00vMrLzL8L'
+    if (!stripeKey) {
+        throw new Error('Stripe publishable key not configured. Please check NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY in .env.local')
+    }
+    
+    const stripe = await loadStripe(stripeKey)
     if (!stripe) {
         throw new Error('Failed to load Stripe')
     }
