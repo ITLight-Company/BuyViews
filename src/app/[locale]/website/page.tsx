@@ -10,6 +10,8 @@ import { Button } from '@/components/ui/button'
 import { Globe, ArrowLeft } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
 
+export const dynamic = 'force-static'
+
 type Step = 'packages' | 'order'
 
 export default function WebsitePage() {

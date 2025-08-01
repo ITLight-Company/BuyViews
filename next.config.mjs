@@ -12,7 +12,7 @@ const nextConfig = {
     },
     basePath: process.env.NODE_ENV === 'production' ? '/BuyViews' : '',
     assetPrefix: process.env.NODE_ENV === 'production' ? '/BuyViews/' : '',
-    
+
     // For GitHub Pages, use static export
     ...(isGitHubPages && {
         output: 'export',

@@ -18,13 +18,13 @@ const nextConfig: NextConfig = {
   },
   basePath: process.env.NODE_ENV === 'production' ? '/BuyViews' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/BuyViews/' : '',
-  
+
   // For GitHub Pages, use static export and skip API routes
   ...(isGitHubPages && {
     output: 'export',
     distDir: 'out',
   }),
-  
+
   /* config options here */
 };
 

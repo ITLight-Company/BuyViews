@@ -11,6 +11,8 @@ import { youtubePackages, websitePackages } from '@/lib/packages'
 import { Youtube, Globe, ArrowLeft } from 'lucide-react'
 import { useLocale } from 'next-intl'
 
+export const dynamic = 'force-static'
+
 type Step = 'hero' | 'service-select' | 'packages' | 'order'
 
 export default function HomePage() {

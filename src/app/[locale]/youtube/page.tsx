@@ -10,6 +10,8 @@ import { youtubePackages } from '@/lib/packages'
 import { Button } from '@/components/ui/button'
 import { useTranslations, useLocale } from 'next-intl'
 
+export const dynamic = 'force-static'
+
 type Step = 'packages' | 'order'
 
 export default function YouTubePage() {

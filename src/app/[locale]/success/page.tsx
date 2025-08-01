@@ -1,14 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { CheckCircle, Loader2 } from 'lucide-react'
 import { Link } from '@/lib/navigation'
 
+export const dynamic = 'force-static'
+
 export default function SuccessPage() {
-    const searchParams = useSearchParams()
-    const sessionId = searchParams.get('session_id')
     const [isLoading, setIsLoading] = useState(true)
     const [orderDetails, setOrderDetails] = useState<{
         id: string;
@@ -17,12 +16,16 @@ export default function SuccessPage() {
     } | null>(null)
 
     useEffect(() => {
-        if (sessionId) {
+        // Get search params on client side only
+        const urlParams = new URLSearchParams(window.location.search)
+        const sessionIdFromUrl = urlParams.get('session_id')
+
+        if (sessionIdFromUrl) {
             // In a real application, you would fetch order details from your backend
             // For now, we'll simulate loading
             setTimeout(() => {
                 setOrderDetails({
-                    id: sessionId,
+                    id: sessionIdFromUrl,
                     status: 'confirmed',
                     estimatedDelivery: '24 hours'
                 })
@@ -31,7 +34,7 @@ export default function SuccessPage() {
         } else {
             setIsLoading(false)
         }
-    }, [sessionId])
+    }, [])
 
     if (isLoading) {
         return (

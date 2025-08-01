@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { XCircle, ArrowLeft } from 'lucide-react'
 import { Link } from '@/lib/navigation'
 
+export const dynamic = 'force-static'
+
 export default function CancelPage() {
     return (
         <div style={{

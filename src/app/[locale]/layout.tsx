@@ -10,6 +10,8 @@ import "../custom-styles.css";
 
 const inter = Inter({ subsets: ['latin'] });
 
+export const dynamic = 'force-static';
+
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }));
 }
