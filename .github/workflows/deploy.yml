@@ -26,8 +26,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Build for GitHub Pages
-        run: npm run build:github-pages
+      - name: Build for Custom Domain
+        run: npm run build:custom-domain
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
