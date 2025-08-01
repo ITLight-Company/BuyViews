@@ -8,10 +8,13 @@ const isStaticExport = process.env.STATIC_EXPORT === 'true';
 const isCustomDomain = process.env.CUSTOM_DOMAIN === 'true';
 
 console.log('Environment:', {
-  GITHUB_PAGES: process.env.GITHUB_PAGES,
-  STATIC_EXPORT: process.env.STATIC_EXPORT,
-  CUSTOM_DOMAIN: process.env.CUSTOM_DOMAIN,
-  NODE_ENV: process.env.NODE_ENV,
+  env: {
+    GITHUB_PAGES: process.env.GITHUB_PAGES,
+    STATIC_EXPORT: process.env.STATIC_EXPORT,
+    CUSTOM_DOMAIN: process.env.CUSTOM_DOMAIN,
+    NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_BACKEND_API_URL: process.env.NEXT_PUBLIC_BACKEND_API_URL,
+  },
   isGitHubPages,
   isStaticExport,
   isCustomDomain

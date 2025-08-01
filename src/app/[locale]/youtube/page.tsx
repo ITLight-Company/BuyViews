@@ -7,6 +7,7 @@ import { PackageSelection } from '@/components/PackageSelection'
 import { OrderForm } from '@/components/OrderForm'
 import { Package, CustomPackage, OrderData } from '@/types'
 import { youtubePackages } from '@/lib/packages'
+import { getApiUrl } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { useTranslations, useLocale } from 'next-intl'
 
@@ -35,7 +36,7 @@ export default function YouTubePage() {
         console.log('YouTube order submitted:', orderData)
 
         try {
-            const response = await fetch('/api/create-checkout-session', {
+            const response = await fetch(`${getApiUrl()}/api/create-checkout-session`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -6,6 +6,7 @@ import { PackageSelection } from '@/components/PackageSelection'
 import { OrderForm } from '@/components/OrderForm'
 import { Package, CustomPackage, OrderData } from '@/types'
 import { websitePackages } from '@/lib/packages'
+import { getApiUrl } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Globe, ArrowLeft } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
@@ -35,7 +36,7 @@ export default function WebsitePage() {
         console.log('Website order submitted:', orderData)
 
         try {
-            const response = await fetch('/api/create-checkout-session', {
+            const response = await fetch(`${getApiUrl()}/api/create-checkout-session`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -8,6 +8,7 @@ import { PackageSelection } from '@/components/PackageSelection'
 import { OrderForm } from '@/components/OrderForm'
 import { Package, CustomPackage, ServiceType, OrderData } from '@/types'
 import { youtubePackages, websitePackages } from '@/lib/packages'
+import { getApiUrl } from '@/lib/utils'
 import { Youtube, Globe, ArrowLeft } from 'lucide-react'
 import { useLocale } from 'next-intl'
 
@@ -59,7 +60,7 @@ export default function HomePage() {
 
     const handlePayment = async (orderData: OrderData) => {
         try {
-            const response = await fetch('/api/create-checkout-session', {
+            const response = await fetch(`${getApiUrl()}/api/create-checkout-session`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
