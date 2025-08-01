@@ -69,21 +69,21 @@ export function getApiUrl(): string {
 // This simulates the checkout process until Laravel backend implements create-checkout-session
 export async function createDirectOrder(orderData: CreateDirectOrderParams) {
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL
-    
+
     if (!backendUrl) {
         throw new Error('Backend API URL not configured')
     }
 
     const { package: pkg, customPackage, customerInfo, serviceType } = orderData
     const packageData = customPackage || pkg
-    
+
     if (!packageData) {
         throw new Error('No package selected')
     }
 
     // Determine the endpoint based on service type
     const endpoint = serviceType === 'youtube' ? '/api/task/youtube-views' : '/api/task/website-visits'
-    
+
     // Prepare data for Laravel backend (simulating webhook data)
     const backendData = {
         email: customerInfo.email,

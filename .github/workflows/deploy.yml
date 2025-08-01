@@ -29,7 +29,7 @@ jobs:
       - name: Build for Custom Domain
         run: npm run build:custom-domain
         env:
-          NEXT_PUBLIC_BACKEND_API_URL: http://phplaravel-1489755-5679434.cloudwaysapps.com
+          NEXT_PUBLIC_BACKEND_API_URL: https://phplaravel-1489755-5679434.cloudwaysapps.com
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
