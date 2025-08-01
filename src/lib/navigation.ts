@@ -4,6 +4,7 @@ import { defineRouting } from 'next-intl/routing';
 export const routing = defineRouting({
     locales: ['en', 'pl', 'de', 'hi'],
     defaultLocale: 'en',
+    localePrefix: 'as-needed',
     pathnames: {
         '/': '/',
         '/youtube': {

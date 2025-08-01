@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
+import './globals.css'
+import './custom-styles.css'
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://buyviews.com'),
+  metadataBase: new URL('https://www.buyviews.eu'),
   title: {
     default: 'BuyViews - Boost Your YouTube Views & Website Traffic',
     template: '%s | BuyViews'
@@ -33,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://buyviews.com',
+    url: 'https://www.buyviews.eu',
     title: 'BuyViews - Boost Your YouTube Views & Website Traffic',
     description: 'Get real YouTube views and website traffic to grow your online presence. Safe, fast, and effective solutions with 24/7 support.',
     siteName: 'BuyViews',
@@ -45,26 +51,35 @@ export const metadata: Metadata = {
     creator: '@buyviews',
   },
   alternates: {
-    canonical: 'https://buyviews.com',
+    canonical: 'https://www.buyviews.eu',
     languages: {
-      'en-US': 'https://buyviews.com/en',
-      'pl-PL': 'https://buyviews.com/pl',
-      'de-DE': 'https://buyviews.com/de',
-      'hi-IN': 'https://buyviews.com/hi',
+      'en-US': 'https://www.buyviews.eu/en',
+      'pl-PL': 'https://www.buyviews.eu/pl',
+      'de-DE': 'https://www.buyviews.eu/de',
+      'hi-IN': 'https://www.buyviews.eu/hi',
     },
   },
 };
 
-// Root layout that redirects to locale-specific layout
-export default function RootLayout({
+// Root layout that provides default English content
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // Provide default English messages for root layout
+  const messages = await getMessages({ locale: 'en' })
+
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen bg-background text-foreground font-sans antialiased`}>
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          <Header locale="en" />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

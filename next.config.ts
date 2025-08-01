@@ -5,13 +5,16 @@ const createNextIntlPlugin = withNextIntl();
 
 const isGitHubPages = process.env.GITHUB_PAGES === 'true';
 const isStaticExport = process.env.STATIC_EXPORT === 'true';
+const isCustomDomain = process.env.CUSTOM_DOMAIN === 'true';
 
 console.log('Environment:', {
   GITHUB_PAGES: process.env.GITHUB_PAGES,
   STATIC_EXPORT: process.env.STATIC_EXPORT,
+  CUSTOM_DOMAIN: process.env.CUSTOM_DOMAIN,
   NODE_ENV: process.env.NODE_ENV,
   isGitHubPages,
-  isStaticExport
+  isStaticExport,
+  isCustomDomain
 });
 
 const nextConfig: NextConfig = {
@@ -21,14 +24,14 @@ const nextConfig: NextConfig = {
   },
 
   // For GitHub Pages
-  ...(isGitHubPages && {
+  ...(isGitHubPages && !isCustomDomain && {
     basePath: '/BuyViews',
     assetPrefix: '/BuyViews/',
     output: 'export',
     distDir: 'out',
   }),
 
-  // For static export to custom domain
+  // For static export to custom domain (no basePath needed)
   ...(isStaticExport && {
     output: 'export',
     distDir: 'out',
