@@ -19,3 +19,22 @@ export function formatNumber(number: number): string {
     }
     return number.toString()
 }
+
+export function getBaseUrl(): string {
+    if (typeof window !== 'undefined') {
+        // Client-side
+        return window.location.origin + (process.env.NODE_ENV === 'production' ? '/BuyViews' : '')
+    }
+
+    // Server-side
+    if (process.env.NEXT_PUBLIC_BASE_URL) {
+        return process.env.NEXT_PUBLIC_BASE_URL
+    }
+
+    // Fallback for production
+    if (process.env.NODE_ENV === 'production') {
+        return 'https://itlight-company.github.io/BuyViews'
+    }
+
+    return 'http://localhost:3000'
+}

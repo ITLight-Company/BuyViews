@@ -2,38 +2,22 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        optimizePackageImports: ['lucide-react'],
-    },
+    trailingSlash: true,
     images: {
-        formats: ['image/webp', 'image/avif'],
+        unoptimized: true,
     },
-    // Optimize for production
-    compiler: {
-        removeConsole: process.env.NODE_ENV === 'production',
-    },
-    // SEO optimizations
-    headers: async () => [
-        {
-            source: '/:path*',
-            headers: [
-                {
-                    key: 'X-Frame-Options',
-                    value: 'DENY',
-                },
-                {
-                    key: 'X-Content-Type-Options',
-                    value: 'nosniff',
-                },
-                {
-                    key: 'Referrer-Policy',
-                    value: 'origin-when-cross-origin',
-                },
-            ],
-        },
-    ],
+    basePath: process.env.NODE_ENV === 'production' ? '/BuyViews' : '',
+    assetPrefix: process.env.NODE_ENV === 'production' ? '/BuyViews/' : '',
+    
+    // For GitHub Pages, use static export
+    ...(isGitHubPages && {
+        output: 'export',
+        distDir: 'out',
+    }),
 };
 
 export default withNextIntl(nextConfig);

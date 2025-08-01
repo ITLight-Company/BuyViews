@@ -74,7 +74,7 @@ export default function CancelPage() {
                                 lineHeight: '1.6',
                                 margin: '0 0 1.5rem 0'
                             }}>
-                                If you encountered any issues during checkout, please don't hesitate to contact our support team for assistance.
+                                If you encountered any issues during checkout, please don&apos;t hesitate to contact our support team for assistance.
                             </p>
 
                             <div style={{ marginBottom: '1.5rem' }}>

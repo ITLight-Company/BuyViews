@@ -33,12 +33,12 @@ export async function POST(request: NextRequest) {
             console.log('Available keys:', Object.keys(metadata))
             console.log('==============================')
 
-            const { 
-                target_url: targetUrl, 
-                service_type: serviceType, 
-                views, 
-                email, 
-                content_name: contentName 
+            const {
+                target_url: targetUrl,
+                service_type: serviceType,
+                views,
+                email,
+                content_name: contentName
             } = metadata
 
             console.log('Extracted values:', {
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
             }
 
             // Prepare data for new API endpoints
-            let backendData: any
+            let backendData: Record<string, unknown>
             let endpoint: string
 
             if (serviceType === 'youtube') {

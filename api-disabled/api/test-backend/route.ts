@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
         const testData = {
             email: "test@example.com",
             video_name: "Test Video",
-            video_link: "https://youtube.com/watch?v=test123", 
+            video_link: "https://youtube.com/watch?v=test123",
             views_to_do: 50
         }
 
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
         let result
         try {
             result = JSON.parse(responseText)
-        } catch (e) {
+        } catch {
             result = { raw_response: responseText }
         }
 

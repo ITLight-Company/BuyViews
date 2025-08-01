@@ -170,7 +170,7 @@ export default function SuccessPage() {
                                         }}>
                                             ✓
                                         </span>
-                                        You'll receive a confirmation email shortly
+                                        You&apos;ll receive a confirmation email shortly
                                     </li>
                                     <li style={{ marginBottom: '0.5rem', paddingLeft: '1rem', position: 'relative' }}>
                                         <span style={{
@@ -192,7 +192,7 @@ export default function SuccessPage() {
                                         }}>
                                             ✓
                                         </span>
-                                        You'll see results within 24 hours
+                                        You&apos;ll see results within 24 hours
                                     </li>
                                     <li style={{ paddingLeft: '1rem', position: 'relative' }}>
                                         <span style={{
