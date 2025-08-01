@@ -7,7 +7,7 @@ import { PackageSelection } from '@/components/PackageSelection'
 import { OrderForm } from '@/components/OrderForm'
 import { Package, CustomPackage, OrderData } from '@/types'
 import { youtubePackages } from '@/lib/packages'
-import { createStripeCheckout } from '@/lib/utils'
+import { createClientSideCheckout } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { useTranslations, useLocale } from 'next-intl'
 
@@ -36,7 +36,7 @@ export default function YouTubePage() {
         console.log('YouTube order submitted:', orderData)
 
         try {
-            const result = await createStripeCheckout({
+            await createClientSideCheckout({
                 package: orderData.package,
                 customPackage: orderData.customPackage,
                 customerInfo: {
@@ -46,13 +46,8 @@ export default function YouTubePage() {
                 },
                 serviceType: 'youtube',
             }, locale)
-
-            if (!result.success) {
-                throw new Error('Failed to create checkout session')
-            }
         } catch (error) {
             console.error('Payment error:', error)
-            alert(`Checkout failed: ${error instanceof Error ? error.message : 'Please try again.'}`)
         }
     }
 

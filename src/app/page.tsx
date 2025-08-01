@@ -8,7 +8,7 @@ import { PackageSelection } from '@/components/PackageSelection'
 import { OrderForm } from '@/components/OrderForm'
 import { Package, CustomPackage, ServiceType, OrderData } from '@/types'
 import { youtubePackages, websitePackages } from '@/lib/packages'
-import { createStripeCheckout } from '@/lib/utils'
+import { createClientSideCheckout } from '@/lib/utils'
 import { Youtube, Globe, ArrowLeft } from 'lucide-react'
 
 export const dynamic = 'force-static'
@@ -58,7 +58,7 @@ export default function HomePage() {
 
   const handlePayment = async (orderData: OrderData) => {
     try {
-      const result = await createStripeCheckout({
+      await createClientSideCheckout({
         package: orderData.package,
         customPackage: orderData.customPackage,
         customerInfo: {
@@ -68,13 +68,8 @@ export default function HomePage() {
         },
         serviceType,
       }, 'en')
-
-      if (!result.success) {
-        throw new Error('Failed to create checkout session')
-      }
     } catch (error) {
       console.error('Payment error:', error)
-      alert(`Checkout failed: ${error instanceof Error ? error.message : 'Please try again.'}`)
     }
   }
 
