@@ -1,0 +1,75 @@
+{
+    "navigation": {
+        "home": "Home",
+        "youtube": "YouTube Views",
+        "website": "Website Traffic",
+        "pricing": "Pricing",
+        "about": "About Us",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "Boost Your Views & Traffic",
+        "subtitle": "Get real YouTube views and website traffic to grow your online presence",
+        "cta": "Get Started Now",
+        "watchDemo": "Watch Demo"
+    },
+    "packages": {
+        "title": "Choose Your Package",
+        "subtitle": "Select the perfect package for your needs",
+        "popular": "Most Popular",
+        "features": "Features",
+        "selectPackage": "Select Package",
+        "custom": "Custom Package",
+        "customDescription": "Create your own package with the exact number of views you need"
+    },
+    "customPackage": {
+        "title": "Build Custom Package",
+        "views": "Number of Views",
+        "price": "Total Price",
+        "minimum": "Minimum {count} views",
+        "calculate": "Calculate Price"
+    },
+    "order": {
+        "title": "Complete Your Order",
+        "contentName": "Content Name",
+        "contentNamePlaceholder": "Enter a name for your content (e.g. 'My YouTube Video' or 'My Website')",
+        "targetUrl": "Target URL",
+        "targetUrlPlaceholder": "Enter your YouTube video or website URL",
+        "email": "Email Address",
+        "emailPlaceholder": "Enter your email address",
+        "payNow": "Pay Now",
+        "processing": "Processing...",
+        "securePayment": "Secure payment powered by Stripe"
+    },
+    "features": {
+        "title": "Why Choose BuyViews?",
+        "realViewers": {
+            "title": "Real Viewers",
+            "description": "All views come from real, active users"
+        },
+        "fastDelivery": {
+            "title": "Fast Delivery",
+            "description": "Start seeing results within 24 hours"
+        },
+        "safeSecure": {
+            "title": "Safe & Secure",
+            "description": "100% compliant with platform guidelines"
+        },
+        "support": {
+            "title": "24/7 Support",
+            "description": "Our team is here to help you succeed"
+        }
+    },
+    "footer": {
+        "company": "Company",
+        "legal": "Legal",
+        "support": "Support",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service",
+        "refundPolicy": "Refund Policy",
+        "helpCenter": "Help Center",
+        "contactUs": "Contact Us",
+        "faq": "FAQ",
+        "copyright": "© 2025 BuyViews. All rights reserved."
+    }
+}

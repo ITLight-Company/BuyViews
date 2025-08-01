@@ -1,0 +1,75 @@
+{
+    "navigation": {
+        "home": "Strona główna",
+        "youtube": "Wyświetlenia YouTube",
+        "website": "Ruch na stronie",
+        "pricing": "Cennik",
+        "about": "O nas",
+        "contact": "Kontakt"
+    },
+    "hero": {
+        "title": "Zwiększ swoje wyświetlenia i ruch",
+        "subtitle": "Uzyskaj prawdziwe wyświetlenia YouTube i ruch na stronie, aby rozwinąć swoją obecność online",
+        "cta": "Zacznij teraz",
+        "watchDemo": "Zobacz demo"
+    },
+    "packages": {
+        "title": "Wybierz swój pakiet",
+        "subtitle": "Wybierz idealny pakiet dla swoich potrzeb",
+        "popular": "Najpopularniejszy",
+        "features": "Funkcje",
+        "selectPackage": "Wybierz pakiet",
+        "custom": "Pakiet niestandardowy",
+        "customDescription": "Stwórz własny pakiet z dokładną liczbą wyświetleń, której potrzebujesz"
+    },
+    "customPackage": {
+        "title": "Zbuduj niestandardowy pakiet",
+        "views": "Liczba wyświetleń",
+        "price": "Cena całkowita",
+        "minimum": "Minimum {count} wyświetleń",
+        "calculate": "Oblicz cenę"
+    },
+    "order": {
+        "title": "Uzupełnij swoje zamówienie",
+        "contentName": "Nazwa treści",
+        "contentNamePlaceholder": "Wprowadź nazwę dla swojej treści (np. 'Mój film YouTube' lub 'Moja strona')",
+        "targetUrl": "Docelowy URL",
+        "targetUrlPlaceholder": "Wprowadź URL swojego filmu YouTube lub strony",
+        "email": "Adres email",
+        "emailPlaceholder": "Wprowadź swój adres email",
+        "payNow": "Zapłać teraz",
+        "processing": "Przetwarzanie...",
+        "securePayment": "Bezpieczna płatność obsługiwana przez Stripe"
+    },
+    "features": {
+        "title": "Dlaczego wybrać BuyViews?",
+        "realViewers": {
+            "title": "Prawdziwi widzowie",
+            "description": "Wszystkie wyświetlenia pochodzą od prawdziwych, aktywnych użytkowników"
+        },
+        "fastDelivery": {
+            "title": "Szybka dostawa",
+            "description": "Zacznij widzieć rezultaty w ciągu 24 godzin"
+        },
+        "safeSecure": {
+            "title": "Bezpieczne i pewne",
+            "description": "100% zgodne z wytycznymi platformy"
+        },
+        "support": {
+            "title": "Wsparcie 24/7",
+            "description": "Nasz zespół jest tutaj, aby pomóc Ci odnieść sukces"
+        }
+    },
+    "footer": {
+        "company": "Firma",
+        "legal": "Prawne",
+        "support": "Wsparcie",
+        "privacyPolicy": "Polityka prywatności",
+        "termsOfService": "Warunki usługi",
+        "refundPolicy": "Polityka zwrotów",
+        "helpCenter": "Centrum pomocy",
+        "contactUs": "Skontaktuj się z nami",
+        "faq": "FAQ",
+        "copyright": "© 2025 BuyViews. Wszystkie prawa zastrzeżone."
+    }
+}

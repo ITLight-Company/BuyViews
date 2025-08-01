@@ -1,0 +1,98 @@
+'use client'
+
+import { useState } from 'react'
+import { Globe, Menu, X } from 'lucide-react'
+import { Link, usePathname } from '@/lib/navigation'
+
+interface HeaderProps {
+  locale: string
+}
+
+const languages = [
+  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'pl', name: 'Polski', flag: '🇵🇱' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'hi', name: 'हिंदी', flag: '🇮🇳' }
+]
+
+export function Header({ locale }: HeaderProps) {
+  const pathname = usePathname()
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const currentLanguage = languages.find(lang => lang.code === locale) || languages[0]
+
+  return (
+    <header className="header">
+      <div className="header-content">
+        {/* Logo */}
+        <Link href="/" className="logo">
+          BoostifyViews
+        </Link>
+
+        {/* Desktop Actions */}
+        <div className="header-actions">
+          {/* Language Selector */}
+          <div className="language-selector">
+            <button
+              className="language-button"
+              onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+            >
+              <span>{currentLanguage.flag}</span>
+              <span>{currentLanguage.code.toUpperCase()}</span>
+              <Globe className="w-4 h-4" />
+            </button>
+
+            {isLanguageMenuOpen && (
+              <div className="language-dropdown">
+                {languages.map((lang) => (
+                  <Link
+                    key={lang.code}
+                    href={pathname}
+                    locale={lang.code}
+                    className="language-option"
+                    onClick={() => setIsLanguageMenuOpen(false)}
+                  >
+                    <span>{lang.flag}</span>
+                    <span>{lang.name}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="mobile-menu-button"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu">
+          <div className="mobile-menu-content">
+            {languages.map((lang) => (
+              <Link
+                key={lang.code}
+                href={pathname}
+                locale={lang.code}
+                className="mobile-menu-item"
+                onClick={() => {
+                  setIsMobileMenuOpen(false)
+                  setIsLanguageMenuOpen(false)
+                }}
+              >
+                <span>{lang.flag}</span>
+                <span>{lang.name}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
+  )
+}

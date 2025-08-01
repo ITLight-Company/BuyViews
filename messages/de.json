@@ -1,0 +1,75 @@
+{
+    "navigation": {
+        "home": "Startseite",
+        "youtube": "YouTube-Aufrufe",
+        "website": "Website-Traffic",
+        "pricing": "Preise",
+        "about": "Über uns",
+        "contact": "Kontakt"
+    },
+    "hero": {
+        "title": "Steigern Sie Ihre Aufrufe & Traffic",
+        "subtitle": "Erhalten Sie echte YouTube-Aufrufe und Website-Traffic, um Ihre Online-Präsenz zu steigern",
+        "cta": "Jetzt loslegen",
+        "watchDemo": "Demo ansehen"
+    },
+    "packages": {
+        "title": "Wählen Sie Ihr Paket",
+        "subtitle": "Wählen Sie das perfekte Paket für Ihre Bedürfnisse",
+        "popular": "Am beliebtesten",
+        "features": "Funktionen",
+        "selectPackage": "Paket auswählen",
+        "custom": "Benutzerdefiniertes Paket",
+        "customDescription": "Erstellen Sie Ihr eigenes Paket mit der genauen Anzahl der Aufrufe, die Sie benötigen"
+    },
+    "customPackage": {
+        "title": "Benutzerdefiniertes Paket erstellen",
+        "views": "Anzahl der Aufrufe",
+        "price": "Gesamtpreis",
+        "minimum": "Minimum {count} Aufrufe",
+        "calculate": "Preis berechnen"
+    },
+    "order": {
+        "title": "Vervollständigen Sie Ihre Bestellung",
+        "contentName": "Inhaltsname",
+        "contentNamePlaceholder": "Geben Sie einen Namen für Ihren Inhalt ein (z.B. 'Mein YouTube-Video' oder 'Meine Website')",
+        "targetUrl": "Ziel-URL",
+        "targetUrlPlaceholder": "Geben Sie Ihre YouTube-Video- oder Website-URL ein",
+        "email": "E-Mail-Adresse",
+        "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+        "payNow": "Jetzt bezahlen",
+        "processing": "Verarbeitung...",
+        "securePayment": "Sichere Zahlung powered by Stripe"
+    },
+    "features": {
+        "title": "Warum BuyViews wählen?",
+        "realViewers": {
+            "title": "Echte Zuschauer",
+            "description": "Alle Aufrufe stammen von echten, aktiven Nutzern"
+        },
+        "fastDelivery": {
+            "title": "Schnelle Lieferung",
+            "description": "Sehen Sie Ergebnisse innerhalb von 24 Stunden"
+        },
+        "safeSecure": {
+            "title": "Sicher & Geschützt",
+            "description": "100% konform mit Plattform-Richtlinien"
+        },
+        "support": {
+            "title": "24/7 Support",
+            "description": "Unser Team hilft Ihnen beim Erfolg"
+        }
+    },
+    "footer": {
+        "company": "Unternehmen",
+        "legal": "Rechtliches",
+        "support": "Support",
+        "privacyPolicy": "Datenschutzrichtlinie",
+        "termsOfService": "Nutzungsbedingungen",
+        "refundPolicy": "Rückerstattungsrichtlinie",
+        "helpCenter": "Hilfe-Center",
+        "contactUs": "Kontaktieren Sie uns",
+        "faq": "FAQ",
+        "copyright": "© 2025 BuyViews. Alle Rechte vorbehalten."
+    }
+}

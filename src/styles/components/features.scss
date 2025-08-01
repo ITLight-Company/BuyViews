@@ -1,0 +1,152 @@
+// Features Section Styles
+.features-section {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(180deg,
+            var(--bg-secondary) 0%,
+            rgba(248, 250, 252, 0.5) 100%);
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            radial-gradient(circle at 25px 25px, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        opacity: 0.3;
+    }
+
+    .features-header {
+        text-align: center;
+        margin-bottom: var(--spacing-3xl);
+        position: relative;
+        z-index: 1;
+
+        .features-title {
+            font-size: var(--font-size-5xl);
+            font-weight: 800;
+            margin-bottom: var(--spacing-md);
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+
+            @media (max-width: 768px) {
+                font-size: var(--font-size-4xl);
+            }
+        }
+
+        .features-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-xl);
+        position: relative;
+        z-index: 1;
+    }
+
+    .feature-card {
+        background: var(--bg-card);
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-2xl);
+        text-align: center;
+        border: 1px solid var(--border-color);
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform var(--transition-normal);
+        }
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+
+            &::before {
+                transform: scaleX(1);
+            }
+
+            .feature-icon {
+                transform: rotate(12deg) scale(1.1);
+            }
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-md);
+            background: var(--primary-gradient);
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform var(--transition-normal);
+
+            svg {
+                width: 32px;
+                height: 32px;
+                color: white;
+            }
+        }
+
+        .feature-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+    }
+
+    .features-cta {
+        text-align: center;
+        margin-top: var(--spacing-3xl);
+        position: relative;
+        z-index: 1;
+
+        .cta-card {
+            display: inline-block;
+            background: linear-gradient(135deg,
+                    rgba(59, 130, 246, 0.1) 0%,
+                    rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-2xl);
+            backdrop-filter: blur(10px);
+
+            .cta-title {
+                font-size: var(--font-size-2xl);
+                font-weight: 700;
+                margin-bottom: var(--spacing-xs);
+            }
+
+            .cta-subtitle {
+                color: var(--text-secondary);
+                margin-bottom: var(--spacing-lg);
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "navigation": {
+        "home": "होम",
+        "youtube": "YouTube व्यूज़",
+        "website": "वेबसाइट ट्रैफिक",
+        "pricing": "मूल्य निर्धारण",
+        "about": "हमारे बारे में",
+        "contact": "संपर्क"
+    },
+    "hero": {
+        "title": "अपने व्यूज़ और ट्रैफिक बढ़ाएं",
+        "subtitle": "अपनी ऑनलाइन उपस्थिति बढ़ाने के लिए वास्तविक YouTube व्यूज़ और वेबसाइट ट्रैफिक प्राप्त करें",
+        "cta": "अभी शुरू करें",
+        "watchDemo": "डेमो देखें"
+    },
+    "packages": {
+        "title": "अपना पैकेज चुनें",
+        "subtitle": "अपनी आवश्यकताओं के लिए सही पैकेज चुनें",
+        "popular": "सबसे लोकप्रिय",
+        "features": "विशेषताएं",
+        "selectPackage": "पैकेज चुनें",
+        "custom": "कस्टम पैकेज",
+        "customDescription": "अपनी आवश्यक व्यूज़ की सटीक संख्या के साथ अपना पैकेज बनाएं"
+    },
+    "customPackage": {
+        "title": "कस्टम पैकेज बनाएं",
+        "views": "व्यूज़ की संख्या",
+        "price": "कुल मूल्य",
+        "minimum": "न्यूनतम {count} व्यूज़",
+        "calculate": "मूल्य की गणना करें"
+    },
+    "order": {
+        "title": "अपना ऑर्डर पूरा करें",
+        "contentName": "सामग्री का नाम",
+        "contentNamePlaceholder": "अपनी सामग्री के लिए एक नाम दर्ज करें (जैसे 'मेरा YouTube वीडियो' या 'मेरी वेबसाइट')",
+        "targetUrl": "लक्ष्य URL",
+        "targetUrlPlaceholder": "अपना YouTube वीडियो या वेबसाइट URL दर्ज करें",
+        "email": "ईमेल पता",
+        "emailPlaceholder": "अपना ईमेल पता दर्ज करें",
+        "payNow": "अभी भुगतान करें",
+        "processing": "प्रसंस्करण...",
+        "securePayment": "Stripe द्वारा संचालित सुरक्षित भुगतान"
+    },
+    "features": {
+        "title": "BuyViews क्यों चुनें?",
+        "realViewers": {
+            "title": "वास्तविक दर्शक",
+            "description": "सभी व्यूज़ वास्तविक, सक्रिय उपयोगकर्ताओं से आते हैं"
+        },
+        "fastDelivery": {
+            "title": "तेज़ डिलीवरी",
+            "description": "24 घंटों के भीतर परिणाम देखना शुरू करें"
+        },
+        "safeSecure": {
+            "title": "सुरक्षित और संरक्षित",
+            "description": "प्लेटफॉर्म दिशानिर्देशों के साथ 100% अनुपालन"
+        },
+        "support": {
+            "title": "24/7 सहायता",
+            "description": "हमारी टीम आपकी सफलता में मदद के लिए यहाँ है"
+        }
+    },
+    "footer": {
+        "company": "कंपनी",
+        "legal": "कानूनी",
+        "support": "सहायता",
+        "privacyPolicy": "गोपनीयता नीति",
+        "termsOfService": "सेवा की शर्तें",
+        "refundPolicy": "वापसी नीति",
+        "helpCenter": "सहायता केंद्र",
+        "contactUs": "हमसे संपर्क करें",
+        "faq": "FAQ",
+        "copyright": "© 2025 BuyViews। सभी अधिकार सुरक्षित।"
+    }
+}
