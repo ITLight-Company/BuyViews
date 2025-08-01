@@ -1,8 +1,8 @@
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './src/lib/navigation';
 
-// Skip middleware for static export
-const middleware = process.env.STATIC_EXPORT === 'true'
+// Skip middleware for static export or GitHub Pages
+const middleware = (process.env.STATIC_EXPORT === 'true' || process.env.GITHUB_PAGES === 'true')
     ? function () { return; }
     : createMiddleware(routing);
 

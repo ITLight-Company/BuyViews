@@ -67,8 +67,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // For static export, provide default English messages explicitly
-  const messages = process.env.STATIC_EXPORT === 'true'
+  // For static export or GitHub Pages, provide default English messages explicitly
+  const messages = (process.env.STATIC_EXPORT === 'true' || process.env.GITHUB_PAGES === 'true')
     ? (await import('../../messages/en.json')).default
     : await getMessages({ locale: 'en' });
 

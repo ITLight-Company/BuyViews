@@ -29,8 +29,8 @@ const nextConfig: NextConfig = {
     distDir: 'out',
   },
 
-  // Only add basePath for GitHub Pages without custom domain
-  ...(isGitHubPages && !isCustomDomain && {
+  // Only add basePath for GitHub Pages (GITHUB_PAGES flag overrides CUSTOM_DOMAIN)
+  ...(isGitHubPages && {
     basePath: '/BuyViews',
     assetPrefix: '/BuyViews/',
   }),

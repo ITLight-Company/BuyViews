@@ -2,8 +2,8 @@ import { getRequestConfig } from 'next-intl/server';
 import { routing } from '@/lib/navigation';
 
 export default getRequestConfig(async ({ requestLocale }) => {
-    // For static export, use default locale
-    if (process.env.STATIC_EXPORT === 'true') {
+    // For static export or GitHub Pages, use default locale
+    if (process.env.STATIC_EXPORT === 'true' || process.env.GITHUB_PAGES === 'true') {
         return {
             locale: 'en',
             messages: (await import(`../../messages/en.json`)).default

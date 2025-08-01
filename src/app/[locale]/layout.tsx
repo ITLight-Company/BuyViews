@@ -30,8 +30,8 @@ export default async function LocaleLayout({
         notFound();
     }
 
-    // For static export, import messages directly to avoid using headers()
-    const messages = process.env.STATIC_EXPORT === 'true'
+    // For static export or GitHub Pages, import messages directly to avoid using headers()
+    const messages = (process.env.STATIC_EXPORT === 'true' || process.env.GITHUB_PAGES === 'true')
         ? (await import(`../../../messages/${locale}.json`)).default
         : await getMessages();
 
