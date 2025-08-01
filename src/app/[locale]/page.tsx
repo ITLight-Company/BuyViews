@@ -8,7 +8,7 @@ import { PackageSelection } from '@/components/PackageSelection'
 import { OrderForm } from '@/components/OrderForm'
 import { Package, CustomPackage, ServiceType, OrderData } from '@/types'
 import { youtubePackages, websitePackages } from '@/lib/packages'
-import { getApiUrl } from '@/lib/utils'
+import { createDirectOrder } from '@/lib/utils'
 import { Youtube, Globe, ArrowLeft } from 'lucide-react'
 import { useLocale } from 'next-intl'
 
@@ -60,35 +60,27 @@ export default function HomePage() {
 
     const handlePayment = async (orderData: OrderData) => {
         try {
-            const response = await fetch(`${getApiUrl()}/api/create-checkout-session`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
+            // Use direct backend API call instead of Stripe checkout
+            const result = await createDirectOrder({
+                package: orderData.package,
+                customPackage: orderData.customPackage,
+                customerInfo: {
+                    email: orderData.email,
+                    targetUrl: orderData.targetUrl,
+                    name: orderData.name,
                 },
-                body: JSON.stringify({
-                    package: orderData.package,
-                    customPackage: orderData.customPackage,
-                    customerInfo: {
-                        email: orderData.email,
-                        targetUrl: orderData.targetUrl,
-                        name: orderData.name,
-                    },
-                    serviceType,
-                    locale: locale,
-                }),
+                serviceType,
             })
 
-            if (!response.ok) {
-                const errorData = await response.json()
-                console.error('API Error:', errorData)
-                throw new Error(errorData.details || 'Failed to create checkout session')
+            if (result.success) {
+                // Redirect to success page
+                window.location.href = `/${locale}/success?task_id=${result.task_id}`
+            } else {
+                throw new Error(result.message || 'Failed to create order')
             }
-
-            const { url } = await response.json()
-            window.location.href = url
         } catch (error) {
             console.error('Payment error:', error)
-            alert('Payment failed. Please try again.')
+            alert(`Order failed: ${error instanceof Error ? error.message : 'Please try again.'}`)
         }
     }
 

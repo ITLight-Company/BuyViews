@@ -7,7 +7,7 @@ import { PackageSelection } from '@/components/PackageSelection'
 import { OrderForm } from '@/components/OrderForm'
 import { Package, CustomPackage, OrderData } from '@/types'
 import { youtubePackages } from '@/lib/packages'
-import { getApiUrl } from '@/lib/utils'
+import { createDirectOrder } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { useTranslations, useLocale } from 'next-intl'
 
@@ -36,29 +36,26 @@ export default function YouTubePage() {
         console.log('YouTube order submitted:', orderData)
 
         try {
-            const response = await fetch(`${getApiUrl()}/api/create-checkout-session`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
+            const result = await createDirectOrder({
+                package: orderData.package,
+                customPackage: orderData.customPackage,
+                customerInfo: {
+                    email: orderData.email,
+                    targetUrl: orderData.targetUrl,
+                    name: orderData.name,
                 },
-                body: JSON.stringify({
-                    ...orderData,
-                    serviceType: 'youtube',
-                    locale: locale,
-                    customerInfo: {
-                        email: orderData.email,
-                        targetUrl: orderData.targetUrl,
-                        name: orderData.name
-                    }
-                }),
+                serviceType: 'youtube',
             })
 
-            if (response.ok) {
-                const { url } = await response.json()
-                window.location.href = url
+            if (result.success) {
+                // Redirect to success page
+                window.location.href = `/${locale}/success?task_id=${result.task_id}`
+            } else {
+                throw new Error(result.message || 'Failed to create order')
             }
         } catch (error) {
             console.error('Payment error:', error)
+            alert(`Order failed: ${error instanceof Error ? error.message : 'Please try again.'}`)
         }
     }
 
