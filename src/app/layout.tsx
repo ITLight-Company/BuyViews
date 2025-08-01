@@ -67,8 +67,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Provide default English messages for root layout
-  const messages = await getMessages({ locale: 'en' })
+  // For static export, provide default English messages explicitly
+  const messages = process.env.STATIC_EXPORT === 'true'
+    ? (await import('../../messages/en.json')).default
+    : await getMessages({ locale: 'en' });
 
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>

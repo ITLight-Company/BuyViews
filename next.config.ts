@@ -23,18 +23,16 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
 
-  // For GitHub Pages
+  // Always export for static builds
+  ...(isStaticExport || isGitHubPages) && {
+    output: 'export',
+    distDir: 'out',
+  },
+
+  // Only add basePath for GitHub Pages without custom domain
   ...(isGitHubPages && !isCustomDomain && {
     basePath: '/BuyViews',
     assetPrefix: '/BuyViews/',
-    output: 'export',
-    distDir: 'out',
-  }),
-
-  // For static export to custom domain (no basePath needed)
-  ...(isStaticExport && {
-    output: 'export',
-    distDir: 'out',
   }),
 
   /* config options here */

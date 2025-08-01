@@ -1,7 +1,12 @@
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './src/lib/navigation';
 
-export default createMiddleware(routing);
+// Skip middleware for static export
+const middleware = process.env.STATIC_EXPORT === 'true'
+    ? function () { return; }
+    : createMiddleware(routing);
+
+export default middleware;
 
 export const config = {
     matcher: [

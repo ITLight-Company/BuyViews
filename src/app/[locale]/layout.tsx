@@ -30,9 +30,10 @@ export default async function LocaleLayout({
         notFound();
     }
 
-    // Providing all messages to the client
-    // side is the easiest way to get started
-    const messages = await getMessages();
+    // For static export, import messages directly to avoid using headers()
+    const messages = process.env.STATIC_EXPORT === 'true'
+        ? (await import(`../../../messages/${locale}.json`)).default
+        : await getMessages();
 
     return (
         <NextIntlClientProvider messages={messages}>
