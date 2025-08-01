@@ -4,11 +4,14 @@ import withNextIntl from "next-intl/plugin";
 const createNextIntlPlugin = withNextIntl();
 
 const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+const isStaticExport = process.env.STATIC_EXPORT === 'true';
 
 console.log('Environment:', {
   GITHUB_PAGES: process.env.GITHUB_PAGES,
+  STATIC_EXPORT: process.env.STATIC_EXPORT,
   NODE_ENV: process.env.NODE_ENV,
-  isGitHubPages
+  isGitHubPages,
+  isStaticExport
 });
 
 const nextConfig: NextConfig = {
@@ -16,11 +19,17 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/BuyViews' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/BuyViews/' : '',
 
-  // For GitHub Pages, use static export and skip API routes
+  // For GitHub Pages
   ...(isGitHubPages && {
+    basePath: '/BuyViews',
+    assetPrefix: '/BuyViews/',
+    output: 'export',
+    distDir: 'out',
+  }),
+
+  // For static export to custom domain
+  ...(isStaticExport && {
     output: 'export',
     distDir: 'out',
   }),
