@@ -68,7 +68,7 @@ export function getApiUrl(): string {
 // Function to create Stripe checkout session using client-side Stripe
 export async function createStripeCheckout(orderData: CreateDirectOrderParams, locale: string = 'en') {
     const stripeKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-    
+
     if (!stripeKey) {
         throw new Error('Stripe publishable key not configured')
     }
@@ -83,7 +83,7 @@ export async function createStripeCheckout(orderData: CreateDirectOrderParams, l
     // Import Stripe dynamically
     const { loadStripe } = await import('@stripe/stripe-js')
     const stripe = await loadStripe(stripeKey)
-    
+
     if (!stripe) {
         throw new Error('Failed to load Stripe')
     }
@@ -92,7 +92,7 @@ export async function createStripeCheckout(orderData: CreateDirectOrderParams, l
     // Since we can't create session server-side in static build,
     // we'll redirect to a payment page with the order data
     // This is a temporary solution until Laravel backend has create-checkout-session endpoint
-    
+
     const orderParams = new URLSearchParams({
         service: serviceType,
         package_id: (packageData as Package)?.id || 'custom',
@@ -103,10 +103,10 @@ export async function createStripeCheckout(orderData: CreateDirectOrderParams, l
         content_name: customerInfo.name,
         locale: locale
     })
-    
+
     // For now, redirect to success page with order details
     // In production, this should create actual Stripe session
     window.location.href = `/${locale}/success?${orderParams.toString()}`
-    
+
     return { success: true }
 }
