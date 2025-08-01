@@ -6,7 +6,7 @@ import { PackageSelection } from '@/components/PackageSelection'
 import { OrderForm } from '@/components/OrderForm'
 import { Package, CustomPackage, OrderData } from '@/types'
 import { websitePackages } from '@/lib/packages'
-import { createDirectOrder } from '@/lib/utils'
+import { createStripeCheckout } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Globe, ArrowLeft } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
@@ -36,7 +36,7 @@ export default function WebsitePage() {
         console.log('Website order submitted:', orderData)
 
         try {
-            const result = await createDirectOrder({
+            const result = await createStripeCheckout({
                 package: orderData.package,
                 customPackage: orderData.customPackage,
                 customerInfo: {
@@ -45,17 +45,14 @@ export default function WebsitePage() {
                     name: orderData.name,
                 },
                 serviceType: 'website',
-            })
+            }, locale)
 
-            if (result.success) {
-                // Redirect to success page
-                window.location.href = `/${locale}/success?task_id=${result.task_id}`
-            } else {
-                throw new Error(result.message || 'Failed to create order')
+            if (!result.success) {
+                throw new Error('Failed to create checkout session')
             }
         } catch (error) {
             console.error('Payment error:', error)
-            alert(`Order failed: ${error instanceof Error ? error.message : 'Please try again.'}`)
+            alert(`Checkout failed: ${error instanceof Error ? error.message : 'Please try again.'}`)
         }
     }
 

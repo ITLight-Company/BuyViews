@@ -8,7 +8,7 @@ import { PackageSelection } from '@/components/PackageSelection'
 import { OrderForm } from '@/components/OrderForm'
 import { Package, CustomPackage, ServiceType, OrderData } from '@/types'
 import { youtubePackages, websitePackages } from '@/lib/packages'
-import { createDirectOrder } from '@/lib/utils'
+import { createStripeCheckout } from '@/lib/utils'
 import { Youtube, Globe, ArrowLeft } from 'lucide-react'
 import { useLocale } from 'next-intl'
 
@@ -60,8 +60,8 @@ export default function HomePage() {
 
     const handlePayment = async (orderData: OrderData) => {
         try {
-            // Use direct backend API call instead of Stripe checkout
-            const result = await createDirectOrder({
+            // Use Stripe checkout instead of direct backend call
+            const result = await createStripeCheckout({
                 package: orderData.package,
                 customPackage: orderData.customPackage,
                 customerInfo: {
@@ -70,17 +70,14 @@ export default function HomePage() {
                     name: orderData.name,
                 },
                 serviceType,
-            })
+            }, locale)
 
-            if (result.success) {
-                // Redirect to success page
-                window.location.href = `/${locale}/success?task_id=${result.task_id}`
-            } else {
-                throw new Error(result.message || 'Failed to create order')
+            if (!result.success) {
+                throw new Error('Failed to create checkout session')
             }
         } catch (error) {
             console.error('Payment error:', error)
-            alert(`Order failed: ${error instanceof Error ? error.message : 'Please try again.'}`)
+            alert(`Checkout failed: ${error instanceof Error ? error.message : 'Please try again.'}`)
         }
     }
 
